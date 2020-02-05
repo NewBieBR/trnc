@@ -823,6 +823,33 @@ touch@^3.1.0:
   dependencies:
     nopt "~1.0.10"
 
+trnc@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/trnc/-/trnc-0.0.2.tgz#d48c242dd04b99dabd630e781f36e61aa1972d10"
+  integrity sha512-G3DUGVmz7jScbc+ZSfjR6Ywpcl3qZ/YNryPqOxpCIYPx1eE/T4N/HmBQpyGZiXvolV5pI/C6GTKiQ4sdtMrlvg==
+  dependencies:
+    chalk "^3.0.0"
+    clear "^0.1.0"
+    commander "^4.1.1"
+    figlet "^1.2.4"
+    path "^0.12.7"
+    shelljs "^0.8.3"
+    yesno "^0.3.1"
+
+trnc@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/trnc/-/trnc-0.0.3.tgz#966cd78417644e973cc0e7345d960eba95807fcc"
+  integrity sha512-E2/eSoDB/PAHRC5fImQjdNW9YhjyEps+pHXHdoDCeEKQY94+ATFBg87oYeg0sGjwA7mNGCSV95vk9WPsBE5OSw==
+  dependencies:
+    chalk "^3.0.0"
+    clear "^0.1.0"
+    commander "^4.1.1"
+    figlet "^1.2.4"
+    path "^0.12.7"
+    shelljs "^0.8.3"
+    trnc "^0.0.2"
+    yesno "^0.3.1"
+
 ts-node@^8.6.2:
   version "8.6.2"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.6.2.tgz#7419a01391a818fbafa6f826a33c1a13e9464e35"
