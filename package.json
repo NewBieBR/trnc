@@ -1,6 +1,6 @@
 {
   "name": "trnc",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Typescript React Native Command Line Interface",
   "scripts": {
     "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
@@ -8,7 +8,7 @@
     "build": "tsc -p .",
     "test": "sudo npm i -g && trnc",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
-    "deploy": "npm run build && npm publish"
+    "prepublishOnly": "npm run build"
   },
   "main": "./lib/index.js",
   "bin": {
@@ -23,10 +23,12 @@
   "author": "Hung Arthur Dao",
   "license": "ISC",
   "dependencies": {
+    "@types/lodash": "^4.14.149",
     "chalk": "^3.0.0",
     "clear": "^0.1.0",
     "commander": "^4.1.1",
     "figlet": "^1.2.4",
+    "lodash": "^4.17.15",
     "path": "^0.12.7",
     "shelljs": "^0.8.3",
     "trnc": "^0.0.5",
