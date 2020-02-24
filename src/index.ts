@@ -78,7 +78,7 @@ program
       packageCmd += ' ' + packageName;
     }
     console.log('> ' + packageCmd);
-    shell.exec(packageCmd);
+    await shell.exec(packageCmd);
     if (template.postInstall) {
       const cmd = 'cd ' + projectName + ' && ' + template.postInstall;
       shell.exec(cmd);
