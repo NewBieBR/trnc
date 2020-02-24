@@ -1,13 +1,14 @@
 {
   "name": "trnc",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Typescript React Native Command Line Interface",
   "scripts": {
     "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
     "test": "sudo npm i -g && trnc",
-    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
+    "deploy": "npm run build && npm publish"
   },
   "main": "./lib/index.js",
   "bin": {

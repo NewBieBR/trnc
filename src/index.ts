@@ -15,7 +15,9 @@ const TypescriptReactNativeStarterGit =
 clear();
 console.log(chalk.green(figlet.textSync('TRNC', { horizontalLayout: 'full' })));
 
-program.version('0.0.3').option('-d, --debug', 'output extra debugging');
+program
+  .version(require('../package.json').version)
+  .option('-d, --debug', 'output extra debugging');
 
 program
   .command('init <ProjectName>')
