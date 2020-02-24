@@ -18,7 +18,7 @@ console.log(chalk.green(figlet.textSync('TRNC', { horizontalLayout: 'full' })));
 program.version('0.0.3').option('-d, --debug', 'output extra debugging');
 
 program
-  .command('init [ProjectName]')
+  .command('init <ProjectName>')
   .description('generates a new react native project with typescript')
   .action(async (projectName: string) => {
     if (fs.existsSync(projectName)) {
