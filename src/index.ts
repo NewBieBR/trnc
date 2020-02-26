@@ -15,6 +15,7 @@ interface Template {
   name: string;
   packages: string[];
   postInstall: string;
+  projectPath?: string;
 }
 
 interface Config {
@@ -84,6 +85,11 @@ program
       shell.exec(cmd);
       console.log('> ' + cmd);
     }
+    if (template.projectPath && template.projectPath.length > 0) {
+      const projectPathCmd = `cp -R ${template.projectPath}/* ${projectName}/`;
+      console.log('> ' + projectPathCmd);
+      await shell.exec(projectPathCmd);
+    }
   });
 
 const DefaultConfig: Partial<Config> = {
@@ -116,6 +122,10 @@ program
   .option('-i, --info <templateName>', 'Show template infomrations')
   .option('-l, --list', 'List all templates')
   .option(
+    '-p, --project <templateName> <projectPath>',
+    'All files from the projectPath will be copied into the newly created project',
+  )
+  .option(
     '-s, --postInstall <templateName> <command>',
     "Set post template's post install command to be executed",
   )
@@ -136,6 +146,22 @@ program
         templates: {
           ...config.templates,
           [cmdObj.add]: { name: cmdObj.add, packages: [] },
+        },
+      });
+    } else if (cmdObj.project) {
+      const template = _.find(config.templates, t => t.name === cmdObj.project);
+      if (template === undefined) {
+        console.log("Template '" + cmdObj.project + "' does not exists.");
+        return;
+      }
+      if (cmdObj.args[1] !== '' && !fs.existsSync(cmdObj.args[1])) {
+        console.log(cmdObj.args[1] + ' does not exists');
+        return;
+      }
+      setConfig({
+        templates: {
+          ...config.templates,
+          [template.name]: { ...template, projectPath: cmdObj.args[1] },
         },
       });
     } else if (cmdObj.postInstall) {

@@ -1,6 +1,6 @@
 {
   "name": "trnc",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Typescript React Native Command Line Interface",
   "scripts": {
     "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
