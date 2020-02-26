@@ -150,18 +150,20 @@ program
       });
     } else if (cmdObj.project) {
       const template = _.find(config.templates, t => t.name === cmdObj.project);
+      const projectPath =
+        cmdObj.args[1] !== '' ? path.resolve(cmdObj.args[1]) : '';
       if (template === undefined) {
         console.log("Template '" + cmdObj.project + "' does not exists.");
         return;
       }
-      if (cmdObj.args[1] !== '' && !fs.existsSync(cmdObj.args[1])) {
-        console.log(cmdObj.args[1] + ' does not exists');
+      if (cmdObj.args[1] !== '' && !fs.existsSync(projectPath)) {
+        console.log(projectPath + ' does not exists');
         return;
       }
       setConfig({
         templates: {
           ...config.templates,
-          [template.name]: { ...template, projectPath: cmdObj.args[1] },
+          [template.name]: { ...template, projectPath },
         },
       });
     } else if (cmdObj.postInstall) {
